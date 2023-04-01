@@ -2,13 +2,14 @@ import React from "react";
 import "./App.css";
 
 import { Routes, Route, Link } from "react-router-dom";
+import Header from "./components/header/Header";
 
 class App extends React.Component {
   render() {
     return (
-      <>
-        <h1 className="App">Hello</h1>
-      </>
+      <div className="app dark_mode">
+        <Header />
+      </div>
     );
   }
 }

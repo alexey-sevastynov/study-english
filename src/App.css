@@ -1,0 +1,19 @@
+.app {
+    height: calc(100vh);
+    color: black;
+    transition: all 0.3s ease 0s;
+}
+
+.dark_mode {
+    background-color: rgb(30, 30, 30);
+    color: #c1a400;
+    transition: all 0.3s ease-out 0s;
+}
+
+.container {
+
+    height: calc(100% - 120px);
+    max-width: 1024px;
+    margin: 0 auto;
+
+}

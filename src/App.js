@@ -6,6 +6,7 @@ import Header from "./components/header/Header";
 import Info from "./components/info/Info";
 import Footer from "./components/footer/Footer";
 import AddWords from "./components/addWords/AddWorks";
+import FooterMain from "./components/footer/FooterMain";
 
 class App extends React.Component {
   render() {
@@ -18,7 +19,8 @@ class App extends React.Component {
           <AddWords />
         </div>
 
-        <Footer />
+        {/* <Footer /> */}
+        <FooterMain />
       </div>
     );
   }

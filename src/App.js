@@ -7,6 +7,7 @@ import Info from "./components/info/Info";
 import Footer from "./components/footer/Footer";
 import AddWords from "./components/addWords/AddWorks";
 import FooterMain from "./components/footer/FooterMain";
+import CreatedWords from "./components/checkWords/CheckWords";
 
 class App extends React.Component {
   render() {
@@ -16,7 +17,8 @@ class App extends React.Component {
 
         <div className="container">
           {/* <Info /> */}
-          <AddWords />
+          {/* <AddWords /> */}
+          <CreatedWords />
         </div>
 
         {/* <Footer /> */}

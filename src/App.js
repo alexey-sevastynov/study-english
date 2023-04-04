@@ -8,6 +8,7 @@ import Footer from "./components/footer/Footer";
 import AddWords from "./components/addWords/AddWorks";
 import FooterMain from "./components/footer/FooterMain";
 import CreatedWords from "./components/checkWords/CheckWords";
+import FooterCheck from "./components/footer/FooterCheck";
 
 class App extends React.Component {
   render() {
@@ -22,7 +23,8 @@ class App extends React.Component {
         </div>
 
         {/* <Footer /> */}
-        <FooterMain />
+        {/* <FooterMain /> */}
+        <FooterCheck />
       </div>
     );
   }

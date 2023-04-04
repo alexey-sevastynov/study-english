@@ -16,7 +16,7 @@ export default class FooterMain extends Component {
           <div className="footer_item">
             {/* <img src={reverse} width={50} height={50} alt="icon"></img> */}
             <img src={reverseDark} width={50} height={50} alt="icon"></img>
-            <span className="tooltiptext">back</span>
+            <span className="tooltiptext">reverse</span>
           </div>
           <div className="footer_item">
             {/* <img src={back} width={50} height={50} alt="icon"></img> */}
@@ -26,7 +26,7 @@ export default class FooterMain extends Component {
           <div className="footer_item">
             {/* <img src={further} width={50} height={50} alt="icon"></img> */}
             <img src={furtherDark} width={50} height={50} alt="icon"></img>
-            <span className="tooltiptext">back</span>
+            <span className="tooltiptext">next</span>
           </div>
         </div>
       </div>

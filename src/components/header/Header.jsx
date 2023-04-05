@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import "./header.css";
 
@@ -14,15 +15,15 @@ export default class Header extends React.Component {
     return (
       <section className="header">
         <div className="header_container dark_mode">
-          <div className="header_item active">
+          <NavLink to="/" className="header_item">
             <img src={infoDark} width={50} height={50} alt="info-icon"></img>
             <span className="tooltiptext">info</span>
-          </div>
+          </NavLink>
 
-          <div className="header_item ">
+          <NavLink to="/main" className="header_item ">
             <img src={menuDark} width={50} height={50} alt="menu-icon"></img>
             <span className="tooltiptext">step 1</span>
-          </div>
+          </NavLink>
 
           <div className="header_mode">
             <div className="header_item">

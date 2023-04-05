@@ -69,6 +69,18 @@ class App extends React.Component {
     });
   };
 
+  addedWordsInArray = () => {
+    const arrayOne = this.state.textareaOne.split("\n");
+    const arrayTwo = this.state.textareaTwo.split("\n");
+
+    this.setState(() => {
+      return {
+        arrWordsOne: arrayOne,
+        arrWordsTwo: arrayTwo,
+      };
+    });
+  };
+
   render() {
     const { modeDark, textareaOne, textareaTwo } = this.state;
 

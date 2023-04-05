@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 
 import { Routes, Route, Link } from "react-router-dom";
+
 import Header from "./components/header/Header";
 import Info from "./components/info/Info";
 import Footer from "./components/footer/Footer";
@@ -9,6 +10,7 @@ import AddWords from "./components/addWords/AddWorks";
 import FooterMain from "./components/footer/FooterMain";
 import CreatedWords from "./components/checkWords/CheckWords";
 import FooterCheck from "./components/footer/FooterCheck";
+import Game from "./components/game/Game";
 
 class App extends React.Component {
   render() {
@@ -19,7 +21,8 @@ class App extends React.Component {
         <div className="container">
           {/* <Info /> */}
           {/* <AddWords /> */}
-          <CreatedWords />
+          {/* <CreatedWords /> */}
+          <Game />
         </div>
 
         {/* <Footer /> */}

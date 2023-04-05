@@ -11,6 +11,7 @@ import FooterMain from "./components/footer/FooterMain";
 import CreatedWords from "./components/checkWords/CheckWords";
 import FooterCheck from "./components/footer/FooterCheck";
 import Game from "./components/game/Game";
+import FooterGame from "./components/footer/FooterGame";
 
 class App extends React.Component {
   render() {
@@ -27,7 +28,8 @@ class App extends React.Component {
 
         {/* <Footer /> */}
         {/* <FooterMain /> */}
-        <FooterCheck />
+        {/* <FooterCheck /> */}
+        <FooterGame />
       </div>
     );
   }

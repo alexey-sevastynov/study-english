@@ -8,11 +8,18 @@ import furtherDark from "./icon/furtherDark.png";
 
 export default class Footer extends Component {
   render() {
+    const { modeDark } = this.props;
+
+    const imgFurther = modeDark ? (
+      <img src={further} width={50} height={50} alt="icon"></img>
+    ) : (
+      <img src={furtherDark} width={50} height={50} alt="icon"></img>
+    );
+
     return (
       <section className="footer">
         <Link to="/main" className="footer_item">
-          <img src={furtherDark} width={50} height={50} alt="icon"></img>
-          {/* <img src={further} width={50} height={50} alt="icon"></img> */}
+          {imgFurther}
 
           <span className="tooltiptext">next</span>
         </Link>

@@ -10,17 +10,29 @@ import gameDark from "./icon/gameDark.png";
 
 export default class FooterCheck extends Component {
   render() {
+    const { modeDark } = this.props;
+
+    const imgGame = modeDark ? (
+      <img src={game} width={50} height={50} alt="game"></img>
+    ) : (
+      <img src={gameDark} width={50} height={50} alt="game"></img>
+    );
+
+    const imgBack = modeDark ? (
+      <img src={back} width={50} height={50} alt="back"></img>
+    ) : (
+      <img src={backDark} width={50} height={50} alt="back"></img>
+    );
+
     return (
       <div className="footer">
         <div className="footer_container">
           <Link to="/main" className="footer_item">
-            {/* <img src={back} width={50} height={50} alt="icon"></img> */}
-            <img src={backDark} width={50} height={50} alt="icon"></img>
+            {imgBack}
             <span className="tooltiptext">back</span>
           </Link>
           <Link to="/game" className="footer_item">
-            {/* <img src={game} width={50} height={50} alt="icon"></img> */}
-            <img src={gameDark} width={50} height={50} alt="icon"></img>
+            {imgGame}
             <span className="tooltiptext">study!</span>
           </Link>
         </div>

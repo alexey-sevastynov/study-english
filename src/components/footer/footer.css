@@ -17,7 +17,7 @@
 
 .dark_mode .footer {
     background-color: rgb(40, 40, 40);
-    transition: all 0.2s ease-out 0s;
+    transition: all 0.4s ease 0s;
 }
 
 .footer_item {

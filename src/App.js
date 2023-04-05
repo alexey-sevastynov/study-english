@@ -21,15 +21,39 @@ import GamePage from "./page/GamePage";
 import NotfoundPage from "./page/NotfoundPage";
 
 class App extends React.Component {
+  state = {
+    modeDark: false,
+  };
+
+  toggleModeState = () => {
+    this.setState(({ modeDark }) => {
+      return {
+        modeDark: !modeDark,
+      };
+    });
+  };
+
   render() {
+    const { modeDark } = this.state;
+
+    const styleMode = modeDark ? "app" : "app dark_mode";
+
     return (
-      <div className="app dark_mode">
+      <div className={styleMode}>
         <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<InfoPage />} />
-            <Route path="main" element={<MainPages />} />
-            <Route path="check" element={<CheckPage />} />
-            <Route path="game" element={<GamePage />} />
+          <Route
+            path="/"
+            element={
+              <Layout
+                toggleModeState={this.toggleModeState}
+                modeDark={modeDark}
+              />
+            }
+          >
+            <Route index element={<InfoPage modeDark={modeDark} />} />
+            <Route path="main" element={<MainPages modeDark={modeDark} />} />
+            <Route path="check" element={<CheckPage modeDark={modeDark} />} />
+            <Route path="game" element={<GamePage modeDark={modeDark} />} />
             <Route path="*" element={<NotfoundPage />} />
           </Route>
         </Routes>

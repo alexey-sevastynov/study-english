@@ -23,6 +23,26 @@ import NotfoundPage from "./page/NotfoundPage";
 class App extends React.Component {
   state = {
     modeDark: false,
+    textareaOne: "",
+    textareaTwo: "",
+    arrWordsOne: [],
+    arrWordsTwo: [],
+  };
+
+  changeTextAreaOne = (e) => {
+    this.setState(() => {
+      return {
+        textareaOne: e.target.value,
+      };
+    });
+  };
+
+  changeTextAreaTwo = (e) => {
+    this.setState(() => {
+      return {
+        textareaTwo: e.target.value,
+      };
+    });
   };
 
   toggleModeState = () => {
@@ -34,7 +54,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { modeDark } = this.state;
+    const { modeDark, textareaOne, textareaTwo } = this.state;
 
     const styleMode = modeDark ? "app" : "app dark_mode";
 
@@ -51,7 +71,18 @@ class App extends React.Component {
             }
           >
             <Route index element={<InfoPage modeDark={modeDark} />} />
-            <Route path="main" element={<MainPages modeDark={modeDark} />} />
+            <Route
+              path="main"
+              element={
+                <MainPages
+                  modeDark={modeDark}
+                  textareaOne={textareaOne}
+                  textareaTwo={textareaTwo}
+                  changeTextAreaOne={this.changeTextAreaOne}
+                  changeTextAreaTwo={this.changeTextAreaTwo}
+                />
+              }
+            />
             <Route path="check" element={<CheckPage modeDark={modeDark} />} />
             <Route path="game" element={<GamePage modeDark={modeDark} />} />
             <Route path="*" element={<NotfoundPage />} />

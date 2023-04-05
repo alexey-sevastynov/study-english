@@ -73,6 +73,8 @@ class App extends React.Component {
     const arrayOne = this.state.textareaOne.split("\n");
     const arrayTwo = this.state.textareaTwo.split("\n");
 
+    console.log(arrayOne, arrayTwo);
+
     this.setState(() => {
       return {
         arrWordsOne: arrayOne,
@@ -110,6 +112,7 @@ class App extends React.Component {
                   changeTextAreaTwo={this.changeTextAreaTwo}
                   cleanTextareaOne={this.cleanTextareaOne}
                   cleanTextareaTwo={this.cleanTextareaTwo}
+                  addedWordsInArray={this.addedWordsInArray}
                 />
               }
             />

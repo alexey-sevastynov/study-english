@@ -12,6 +12,8 @@ export default class AddWords extends Component {
       textareaTwo,
       changeTextAreaOne,
       changeTextAreaTwo,
+      cleanTextareaOne,
+      cleanTextareaTwo,
     } = this.props;
 
     const imgArrow = modeDark ? (
@@ -28,7 +30,9 @@ export default class AddWords extends Component {
             value={textareaOne}
             onChange={changeTextAreaOne}
           ></textarea>
-          <button className="block_btn">clean up</button>
+          <button className="block_btn" onClick={cleanTextareaOne}>
+            clean up
+          </button>
         </div>
 
         <div className="col_2">
@@ -42,7 +46,9 @@ export default class AddWords extends Component {
             value={textareaTwo}
             onChange={changeTextAreaTwo}
           ></textarea>
-          <button className="block_btn">clean up</button>
+          <button className="block_btn" onClick={cleanTextareaTwo}>
+            clean up
+          </button>
         </div>
       </section>
     );

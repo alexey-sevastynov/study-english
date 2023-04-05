@@ -45,6 +45,22 @@ class App extends React.Component {
     });
   };
 
+  cleanTextareaOne = () => {
+    this.setState(() => {
+      return {
+        textareaOne: "",
+      };
+    });
+  };
+
+  cleanTextareaTwo = () => {
+    this.setState(() => {
+      return {
+        textareaTwo: "",
+      };
+    });
+  };
+
   toggleModeState = () => {
     this.setState(({ modeDark }) => {
       return {
@@ -80,6 +96,8 @@ class App extends React.Component {
                   textareaTwo={textareaTwo}
                   changeTextAreaOne={this.changeTextAreaOne}
                   changeTextAreaTwo={this.changeTextAreaTwo}
+                  cleanTextareaOne={this.cleanTextareaOne}
+                  cleanTextareaTwo={this.cleanTextareaTwo}
                 />
               }
             />

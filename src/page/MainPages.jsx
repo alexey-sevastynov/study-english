@@ -12,6 +12,8 @@ export default function MainPages(props) {
     textareaTwo,
     changeTextAreaOne,
     changeTextAreaTwo,
+    cleanTextareaOne,
+    cleanTextareaTwo,
   } = props;
   return (
     <>
@@ -22,6 +24,8 @@ export default function MainPages(props) {
           textareaTwo={textareaTwo}
           changeTextAreaOne={changeTextAreaOne}
           changeTextAreaTwo={changeTextAreaTwo}
+          cleanTextareaOne={cleanTextareaOne}
+          cleanTextareaTwo={cleanTextareaTwo}
         />
       </div>
       <FooterMain modeDark={modeDark} />

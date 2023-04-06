@@ -15,6 +15,7 @@ export default function MainPages(props) {
     cleanTextareaOne,
     cleanTextareaTwo,
     addedWordsInArray,
+    reverseArray,
   } = props;
   return (
     <>
@@ -29,7 +30,11 @@ export default function MainPages(props) {
           cleanTextareaTwo={cleanTextareaTwo}
         />
       </div>
-      <FooterMain modeDark={modeDark} addedWordsInArray={addedWordsInArray} />
+      <FooterMain
+        modeDark={modeDark}
+        addedWordsInArray={addedWordsInArray}
+        reverseArray={reverseArray}
+      />
     </>
   );
 }

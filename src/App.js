@@ -68,6 +68,20 @@ class App extends React.Component {
     });
   };
 
+  reverseArray = async () => {
+    const strCol_1 = this.state.textareaOne;
+    const strCol_2 = this.state.textareaTwo;
+
+    await this.setState(() => {
+      return {
+        textareaOne: strCol_2,
+        textareaTwo: strCol_1,
+      };
+    });
+
+    await this.addedWordsInArray();
+  };
+
   addedWordsInArray = () => {
     const arrayOne = this.state.textareaOne.split("\n");
     const arrayTwo = this.state.textareaTwo.split("\n");
@@ -117,6 +131,7 @@ class App extends React.Component {
                   cleanTextareaOne={this.cleanTextareaOne}
                   cleanTextareaTwo={this.cleanTextareaTwo}
                   addedWordsInArray={this.addedWordsInArray}
+                  reverseArray={this.reverseArray}
                 />
               }
             />

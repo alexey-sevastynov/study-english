@@ -14,7 +14,7 @@ import wrireDark from "./icon/writeDark.png";
 
 export default class FooterMain extends Component {
   render() {
-    const { modeDark, addedWordsInArray } = this.props;
+    const { modeDark, addedWordsInArray, reverseArray } = this.props;
 
     const imgFurther = modeDark ? (
       <img src={further} width={50} height={50} alt="next"></img>
@@ -29,9 +29,21 @@ export default class FooterMain extends Component {
     );
 
     const imgReverse = modeDark ? (
-      <img src={reverse} width={50} height={50} alt="reverse"></img>
+      <img
+        src={reverse}
+        width={50}
+        height={50}
+        alt="reverse"
+        onClick={reverseArray}
+      ></img>
     ) : (
-      <img src={reverseDark} width={50} height={50} alt="reverse"></img>
+      <img
+        src={reverseDark}
+        width={50}
+        height={50}
+        alt="reverse"
+        onClick={reverseArray}
+      ></img>
     );
 
     const imgWriten = modeDark ? (

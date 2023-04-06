@@ -14,6 +14,9 @@ export default class AddWords extends Component {
       changeTextAreaTwo,
       cleanTextareaOne,
       cleanTextareaTwo,
+      arreysWord,
+      err,
+      success,
     } = this.props;
 
     const imgArrow = modeDark ? (
@@ -21,6 +24,16 @@ export default class AddWords extends Component {
     ) : (
       <img src={arrow} height={20} width={95} alt="arrow"></img>
     );
+
+    const textError = err ? (
+      <p className="block-popup red">
+        Error: <i>"input value"</i>
+      </p>
+    ) : null;
+
+    const textSuccess = success ? (
+      <p className="block-popup green">Success!</p>
+    ) : null;
 
     return (
       <section className="block">
@@ -31,7 +44,7 @@ export default class AddWords extends Component {
             onChange={changeTextAreaOne}
           ></textarea>
           <button className="block_btn" onClick={cleanTextareaOne}>
-            clean up
+            clean up ({arreysWord.length})
           </button>
         </div>
 
@@ -47,9 +60,11 @@ export default class AddWords extends Component {
             onChange={changeTextAreaTwo}
           ></textarea>
           <button className="block_btn" onClick={cleanTextareaTwo}>
-            clean up
+            clean up ({arreysWord.length})
           </button>
         </div>
+        {textError}
+        {textSuccess}
       </section>
     );
   }

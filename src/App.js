@@ -107,7 +107,7 @@ class App extends React.Component {
     }
 
     // check for success
-    if (this.state.arreysWord.length > 1 || this.state.arreysWord.) {
+    if (this.state.arreysWord.length > 1) {
       await this.setState(() => {
         return {
           success: true,

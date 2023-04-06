@@ -14,12 +14,30 @@ import wrireDark from "./icon/writeDark.png";
 
 export default class FooterMain extends Component {
   render() {
-    const { modeDark, addedWordsInArray, reverseArray } = this.props;
+    const {
+      modeDark,
+      addedWordsInArray,
+      reverseArray,
+      checkForEmptiness,
+      arreysWord,
+    } = this.props;
 
     const imgFurther = modeDark ? (
-      <img src={further} width={50} height={50} alt="next"></img>
+      <img
+        src={further}
+        width={50}
+        height={50}
+        alt="next"
+        onClick={checkForEmptiness}
+      ></img>
     ) : (
-      <img src={furtherDark} width={50} height={50} alt="next"></img>
+      <img
+        src={furtherDark}
+        width={50}
+        height={50}
+        alt="next"
+        onClick={checkForEmptiness}
+      ></img>
     );
 
     const imgBack = modeDark ? (
@@ -64,6 +82,21 @@ export default class FooterMain extends Component {
       ></img>
     );
 
+    const btnFurther =
+      arreysWord.length === 0 ||
+      arreysWord[0].colOne === "" ||
+      arreysWord[0].colTwo === "" ? (
+        <div className="footer_item">
+          {imgFurther}
+          <span className="tooltiptext">next</span>
+        </div>
+      ) : (
+        <Link to="/check" className="footer_item">
+          {imgFurther}
+          <span className="tooltiptext">next</span>
+        </Link>
+      );
+
     return (
       <div className="footer ">
         <div className="footer_container">
@@ -80,10 +113,7 @@ export default class FooterMain extends Component {
             <span className="tooltiptext">add</span>
           </div>
 
-          <Link to="/check" className="footer_item">
-            {imgFurther}
-            <span className="tooltiptext">next</span>
-          </Link>
+          {btnFurther}
         </div>
       </div>
     );

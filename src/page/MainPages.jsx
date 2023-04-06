@@ -16,6 +16,10 @@ export default function MainPages(props) {
     cleanTextareaTwo,
     addedWordsInArray,
     reverseArray,
+    arreysWord,
+    checkForEmptiness,
+    err,
+    success,
   } = props;
   return (
     <>
@@ -28,12 +32,17 @@ export default function MainPages(props) {
           changeTextAreaTwo={changeTextAreaTwo}
           cleanTextareaOne={cleanTextareaOne}
           cleanTextareaTwo={cleanTextareaTwo}
+          arreysWord={arreysWord}
+          err={err}
+          success={success}
         />
       </div>
       <FooterMain
         modeDark={modeDark}
         addedWordsInArray={addedWordsInArray}
         reverseArray={reverseArray}
+        checkForEmptiness={checkForEmptiness}
+        arreysWord={arreysWord}
       />
     </>
   );

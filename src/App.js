@@ -26,6 +26,8 @@ class App extends React.Component {
     textareaOne: "",
     textareaTwo: "",
     arreysWord: [],
+    err: false,
+    success: false,
   };
 
   changeTextAreaOne = (e) => {
@@ -48,6 +50,7 @@ class App extends React.Component {
     this.setState(() => {
       return {
         textareaOne: "",
+        arreysWord: [],
       };
     });
   };
@@ -56,6 +59,7 @@ class App extends React.Component {
     this.setState(() => {
       return {
         textareaTwo: "",
+        arreysWord: [],
       };
     });
   };
@@ -82,7 +86,7 @@ class App extends React.Component {
     await this.addedWordsInArray();
   };
 
-  addedWordsInArray = () => {
+  addedWordsInArray = async () => {
     const arrayOne = this.state.textareaOne.split("\n");
     const arrayTwo = this.state.textareaTwo.split("\n");
 
@@ -92,17 +96,49 @@ class App extends React.Component {
       arrNew.push({ id: i + 1, colOne: arrayOne[i], colTwo: arrayTwo[i] });
     }
 
-    console.log(arrayOne, arrayTwo);
+    if (arrayOne[0] === "" || arrayTwo[0] === "0") {
+      return;
+    } else {
+      await this.setState(() => {
+        return {
+          arreysWord: arrNew,
+        };
+      });
+    }
 
-    this.setState(() => {
-      return {
-        arreysWord: arrNew,
-      };
-    });
+    // check for success
+    if (this.state.arreysWord.length > 1 || this.state.arreysWord.) {
+      await this.setState(() => {
+        return {
+          success: true,
+        };
+      });
+      await setTimeout(() => this.setState({ success: false }), 3000);
+    }
+  };
+
+  checkForEmptiness = () => {
+    console.log("checkForEmptiness");
+    if (
+      this.state.arreysWord.length === 0 ||
+      this.state.arreysWord[0].colOne === "" ||
+      this.state.arreysWord[0].colTwo === ""
+    ) {
+      this.setState(() => {
+        return {
+          err: true,
+        };
+      });
+
+      setTimeout(() => {
+        this.setState({ err: false });
+      }, 3000);
+    }
   };
 
   render() {
-    const { modeDark, textareaOne, textareaTwo, arreysWord } = this.state;
+    const { modeDark, textareaOne, textareaTwo, arreysWord, err, success } =
+      this.state;
 
     const styleMode = modeDark ? "app" : "app dark_mode";
 
@@ -132,6 +168,10 @@ class App extends React.Component {
                   cleanTextareaTwo={this.cleanTextareaTwo}
                   addedWordsInArray={this.addedWordsInArray}
                   reverseArray={this.reverseArray}
+                  arreysWord={arreysWord}
+                  checkForEmptiness={this.checkForEmptiness}
+                  err={err}
+                  success={success}
                 />
               }
             />

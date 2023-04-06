@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 
 import "./checkWords.css";
-import ItemWord from "./ItemWord";
 
 export default class CreatedWords extends Component {
   render() {
-    const { objWords } = this.props;
+    const { arreysWord } = this.props;
 
-    return (
-      <div className="table">
-        <ItemWord objWords={objWords} />
-      </div>
-    );
+    const items = arreysWord.map((item) => (
+      <ul className="table-item" key={item.id}>
+        <li className="table_col_0">{item.id}</li>
+        <li className="table_col_1">{item.colOne}</li>
+        <li className="table_col_2">=</li>
+        <li className="table_col_3">{item.colTwo}</li>
+      </ul>
+    ));
+
+    return <div className="table">{items}</div>;
   }
 }

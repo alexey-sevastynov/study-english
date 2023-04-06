@@ -25,7 +25,7 @@ class App extends React.Component {
     modeDark: false,
     textareaOne: "",
     textareaTwo: "",
-    objWords: {},
+    arreysWord: [],
   };
 
   changeTextAreaOne = (e) => {
@@ -72,17 +72,23 @@ class App extends React.Component {
     const arrayOne = this.state.textareaOne.split("\n");
     const arrayTwo = this.state.textareaTwo.split("\n");
 
+    const arrNew = [];
+
+    for (let i = 0; i < arrayOne.length; i++) {
+      arrNew.push({ id: i + 1, colOne: arrayOne[i], colTwo: arrayTwo[i] });
+    }
+
     console.log(arrayOne, arrayTwo);
 
     this.setState(() => {
       return {
-        objWords: { arrayOne, arrayTwo },
+        arreysWord: arrNew,
       };
     });
   };
 
   render() {
-    const { modeDark, textareaOne, textareaTwo, objWords } = this.state;
+    const { modeDark, textareaOne, textareaTwo, arreysWord } = this.state;
 
     const styleMode = modeDark ? "app" : "app dark_mode";
 
@@ -116,7 +122,9 @@ class App extends React.Component {
             />
             <Route
               path="check"
-              element={<CheckPage modeDark={modeDark} objWords={objWords} />}
+              element={
+                <CheckPage modeDark={modeDark} arreysWord={arreysWord} />
+              }
             />
             <Route path="game" element={<GamePage modeDark={modeDark} />} />
             <Route path="*" element={<NotfoundPage />} />

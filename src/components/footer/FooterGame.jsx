@@ -8,12 +8,24 @@ import tryingDark from "./icon/tryDark.png";
 
 export default class FooterGame extends Component {
   render() {
-    const { modeDark } = this.props;
+    const { modeDark, checkForMatches } = this.props;
 
     const imgTry = modeDark ? (
-      <img src={trying} width={50} height={50} alt="try"></img>
+      <img
+        src={trying}
+        width={50}
+        height={50}
+        alt="try"
+        onClick={checkForMatches}
+      ></img>
     ) : (
-      <img src={tryingDark} width={50} height={50} alt="try"></img>
+      <img
+        src={tryingDark}
+        width={50}
+        height={50}
+        alt="try"
+        onClick={checkForMatches}
+      ></img>
     );
 
     const imgQuestion = modeDark ? (
@@ -30,7 +42,7 @@ export default class FooterGame extends Component {
           </div>
           <div className="footer_item">
             {imgTry}
-            <span className="tooltiptext">study!</span>
+            <span className="tooltiptext">TRY!</span>
           </div>
         </div>
       </div>

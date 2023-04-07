@@ -10,12 +10,18 @@ import gameDark from "./icon/gameDark.png";
 
 export default class FooterCheck extends Component {
   render() {
-    const { modeDark } = this.props;
+    const { modeDark, btnGame } = this.props;
 
     const imgGame = modeDark ? (
-      <img src={game} width={50} height={50} alt="game"></img>
+      <img src={game} width={50} height={50} alt="game" onClick={btnGame}></img>
     ) : (
-      <img src={gameDark} width={50} height={50} alt="game"></img>
+      <img
+        src={gameDark}
+        width={50}
+        height={50}
+        alt="game"
+        onClick={btnGame}
+      ></img>
     );
 
     const imgBack = modeDark ? (

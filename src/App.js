@@ -26,8 +26,16 @@ class App extends React.Component {
     textareaOne: "",
     textareaTwo: "",
     arreysWord: [],
+    duplicArreysWord: [],
+    arrayWin: [],
+    arrayLose: [],
     err: false,
     success: false,
+    indexRandom: 0,
+
+    inputWord: "",
+    checkWin: false,
+    checkLose: false,
   };
 
   changeTextAreaOne = (e) => {
@@ -118,12 +126,7 @@ class App extends React.Component {
   };
 
   checkForEmptiness = () => {
-    console.log("checkForEmptiness");
-    if (
-      this.state.arreysWord.length === 0 ||
-      this.state.arreysWord[0].colOne === "" ||
-      this.state.arreysWord[0].colTwo === ""
-    ) {
+    if (this.state.arreysWord.length === 0) {
       this.setState(() => {
         return {
           err: true,
@@ -136,9 +139,135 @@ class App extends React.Component {
     }
   };
 
-  render() {
-    const { modeDark, textareaOne, textareaTwo, arreysWord, err, success } =
+  showRandomWord = () => {
+    const { arrayWin, duplicArreysWord } = this.state;
+
+    const duplicWordCount = duplicArreysWord.length; // [{},{},{}]
+    const newRanomIndex = Math.floor(Math.random() * (duplicWordCount - 1)); // random: 0,1,2... (1)
+
+    if (arrayWin.length !== 0) {
+      this.setState(() => {
+        return {
+          indexRandom: newRanomIndex,
+        };
+      });
+    }
+  };
+
+  handleWordChange = (event) => {
+    this.setState({ inputWord: event.target.value });
+  };
+
+  checkForMatches = () => {
+    const { arrayWin, arrayLose, indexRandom, inputWord, duplicArreysWord } =
       this.state;
+
+    const duplicWordCount = duplicArreysWord.length; // word count
+
+    const word = duplicArreysWord[indexRandom].colTwo; // colon_1 CheckPage.jsx
+    const wordInput = inputWord; // colon_2 INPUT CheckPage.jsx
+
+    const objCurrent = duplicArreysWord[indexRandom]; // current object
+
+    //_______________________________________check LOSE
+
+    if (word !== wordInput) {
+      this.setState(() => {
+        return {
+          checkLose: true,
+          checkWin: false,
+          inputWord: "",
+        };
+      });
+      if (!arrayLose.includes(objCurrent)) {
+        const newArreysWord = duplicArreysWord.filter(
+          (item) => item !== objCurrent
+        );
+
+        this.setState(({ arrayLose }) => {
+          return {
+            arrayLose: [...arrayLose, objCurrent],
+            duplicArreysWord: newArreysWord,
+          };
+        });
+      }
+    }
+
+    //_______________________________________check WIN!!!
+
+    if (word === wordInput) {
+      this.setState(() => {
+        return {
+          checkWin: true,
+          checkLose: false,
+          inputWord: "",
+        };
+      });
+
+      if (!arrayWin.includes(objCurrent)) {
+        const newArreysWord = duplicArreysWord.filter(
+          (item) => item !== objCurrent
+        );
+
+        this.setState(({ arrayWin }) => {
+          return {
+            arrayWin: [...arrayWin, objCurrent],
+            duplicArreysWord: newArreysWord,
+          };
+        });
+        this.showRandomWord();
+      }
+
+      // if (duplicWordCount === 0) {
+      //   this.setState(({ arrayWin }) => {
+      //     return {
+      //       arrayWin: [...arrayWin, objCurrent],
+      //       duplicArreysWord: [{ colOne: "win", colTwo: "win" }],
+      //     };
+      //   });
+      // } else if (!arrayWin.includes(objCurrent)) {
+      //   const newArreysWord = duplicArreysWord.filter(
+      //     (item) => item !== objCurrent
+      //   );
+
+      //   this.setState(({ arrayWin }) => {
+      //     return {
+      //       arrayWin: [...arrayWin, objCurrent],
+      //       duplicArreysWord: newArreysWord,
+      //     };
+      //   });
+      //   // await this.showRandomWord();
+      // }
+    }
+  };
+
+  btnGame = () => {
+    this.setState(({ arreysWord }) => {
+      return {
+        arrayLose: [],
+        arrayWin: [],
+        duplicArreysWord: arreysWord,
+      };
+    });
+  };
+  componentDidMount() {
+    // this.showRandomWord();
+  }
+
+  render() {
+    const {
+      modeDark,
+      textareaOne,
+      textareaTwo,
+      arreysWord,
+      err,
+      success,
+      indexRandom,
+      inputWord,
+      arrayWin,
+      arrayLose,
+      duplicArreysWord,
+    } = this.state;
 
     const styleMode = modeDark ? "app" : "app dark_mode";
 
@@ -178,10 +307,29 @@ class App extends React.Component {
             <Route
               path="check"
               element={
-                <CheckPage modeDark={modeDark} arreysWord={arreysWord} />
+                <CheckPage
+                  modeDark={modeDark}
+                  arreysWord={arreysWord}
+                  btnGame={this.btnGame}
+                />
               }
             />
-            <Route path="game" element={<GamePage modeDark={modeDark} />} />
+            <Route
+              path="game"
+              element={
+                <GamePage
+                  modeDark={modeDark}
+                  arreysWord={arreysWord}
+                  indexRandom={indexRandom}
+                  handleWordChange={this.handleWordChange}
+                  inputWord={inputWord}
+                  checkForMatches={this.checkForMatches}
+                  duplicArreysWord={duplicArreysWord}
+                  arrayWin={arrayWin}
+                  arrayLose={arrayLose}
+                />
+              }
+            />
             <Route path="*" element={<NotfoundPage />} />
           </Route>
         </Routes>

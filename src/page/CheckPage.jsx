@@ -4,14 +4,14 @@ import CreatedWords from "../components/checkWords/CheckWords";
 import FooterCheck from "../components/footer/FooterCheck";
 
 export default function CheckPage(props) {
-  const { modeDark, arreysWord } = props;
+  const { modeDark, arreysWord, btnGame } = props;
 
   return (
     <>
       <div className="container">
         <CreatedWords arreysWord={arreysWord} />
       </div>
-      <FooterCheck modeDark={modeDark} />
+      <FooterCheck modeDark={modeDark} btnGame={btnGame} />
     </>
   );
 }

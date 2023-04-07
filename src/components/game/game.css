@@ -16,9 +16,11 @@
 }
 
 .game-block-head {
-    width: 74%;
+
     height: 40px;
     background-color: green;
+
+    transition: all 0.9s ease-out 0s;
 }
 
 .dark_mode .game-block-head {

@@ -23,19 +23,29 @@ export default class Game extends Component {
     const wordCount = arreysWord.length;
     const wordCountTrue = arrayWin.length;
     const wordCountFalse = arrayLose.length;
+    const wordDuplicCount = duplicArreysWord.length;
+
+    const showNumWordCount = wordCount - wordDuplicCount; // number of words passed
 
     const text =
       duplicArreysWord.length === 0
         ? "WIN!"
         : duplicArreysWord[indexRandom].colOne;
 
+    // 10 -100
+    // 1 - x
+    const percent = (100 * showNumWordCount) / wordCount;
+    const showPercent = { width: `${percent}%` };
+
     return (
       <section className="game">
         <div className="game-block">
           <div className="game-block-header">
-            <div className="game-block-head"></div>
+            <div className="game-block-head" style={showPercent}></div>
             <div className="game-block-header-percent">
-              <p>1 from {wordCount}</p>
+              <p>
+                {showNumWordCount} from {wordCount}
+              </p>
             </div>
           </div>
 

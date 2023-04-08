@@ -18,6 +18,7 @@ export default function GamePage(props) {
     checkWin,
     help,
     showHelp,
+    inputWordDuplicat,
   } = props;
 
   return (
@@ -28,6 +29,7 @@ export default function GamePage(props) {
           indexRandom={indexRandom}
           handleWordChange={handleWordChange}
           inputWord={inputWord}
+          inputWordDuplicat={inputWordDuplicat}
           duplicArreysWord={duplicArreysWord}
           arrayWin={arrayWin}
           arrayLose={arrayLose}

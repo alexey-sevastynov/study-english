@@ -14,6 +14,7 @@ export default class Game extends Component {
       arreysWord,
       indexRandom,
       inputWord,
+      inputWordDuplicat,
       handleWordChange,
       duplicArreysWord,
       arrayWin,
@@ -80,11 +81,9 @@ export default class Game extends Component {
             </div>
           </div>
         </div>
-
         <div className="game-answer">
           <p>{visibleHelp}</p>
         </div>
-
         <div className="game-screen">
           <div className="game-screen-true">
             <p>{wordCountTrue}</p>
@@ -94,13 +93,15 @@ export default class Game extends Component {
           </div>
         </div>
 
-        <div className="false-words">
-          {arrayLose.map((item) => (
-            <p key={item.id}>
-              {item.colOne}={item.colTwo}
+        {wordCountFalse === 0 ? null : (
+          <div className="false-words">
+            <p>
+              {arrayLose[wordCountFalse - 1].colOne} ={" "}
+              {arrayLose[wordCountFalse - 1].colTwo} (<s>{inputWordDuplicat}</s>
+              )
             </p>
-          ))}
-        </div>
+          </div>
+        )}
       </section>
     );
   }

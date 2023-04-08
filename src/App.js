@@ -34,6 +34,7 @@ class App extends React.Component {
     indexRandom: 0,
 
     inputWord: "",
+    inputWordDuplicat: "",
     checkWin: false,
     checkLose: false,
     help: false,
@@ -165,8 +166,8 @@ class App extends React.Component {
 
     const duplicWordCount = duplicArreysWord.length; // word count
 
-    const word = duplicArreysWord[indexRandom].colTwo; // colon_1 CheckPage.jsx
-    const wordInput = inputWord; // colon_2 INPUT CheckPage.jsx
+    const word = duplicArreysWord[indexRandom].colTwo.toLowerCase(); // colon_1 CheckPage.jsx
+    const wordInput = inputWord.toLowerCase(); // colon_2 INPUT CheckPage.jsx
 
     const objCurrent = duplicArreysWord[indexRandom]; // current object
 
@@ -178,6 +179,7 @@ class App extends React.Component {
           checkLose: true,
           checkWin: false,
           inputWord: "",
+          inputWordDuplicat: wordInput,
         };
       });
       if (!arrayLose.includes(objCurrent)) {
@@ -277,6 +279,7 @@ class App extends React.Component {
       success,
       indexRandom,
       inputWord,
+      inputWordDuplicat,
       arrayWin,
       arrayLose,
       duplicArreysWord,
@@ -339,6 +342,7 @@ class App extends React.Component {
                   indexRandom={indexRandom}
                   handleWordChange={this.handleWordChange}
                   inputWord={inputWord}
+                  inputWordDuplicat={inputWordDuplicat}
                   checkForMatches={this.checkForMatches}
                   duplicArreysWord={duplicArreysWord}
                   arrayWin={arrayWin}

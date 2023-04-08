@@ -36,6 +36,7 @@ class App extends React.Component {
     inputWord: "",
     checkWin: false,
     checkLose: false,
+    help: false,
   };
 
   changeTextAreaOne = (e) => {
@@ -254,6 +255,16 @@ class App extends React.Component {
     // this.showRandomWord();
   }
 
+  showHelp = () => {
+    this.setState(() => {
+      return {
+        help: true,
+      };
+    });
+
+    setTimeout(() => this.setState({ help: false }), 4000);
+  };
+
   render() {
     const {
       modeDark,
@@ -267,6 +278,9 @@ class App extends React.Component {
       arrayWin,
       arrayLose,
       duplicArreysWord,
+      checkLose,
+      checkWin,
+      help,
     } = this.state;
 
     const styleMode = modeDark ? "app" : "app dark_mode";
@@ -327,6 +341,10 @@ class App extends React.Component {
                   duplicArreysWord={duplicArreysWord}
                   arrayWin={arrayWin}
                   arrayLose={arrayLose}
+                  checkLose={checkLose}
+                  checkWin={checkWin}
+                  showHelp={this.showHelp}
+                  help={help}
                 />
               }
             />

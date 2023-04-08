@@ -14,6 +14,10 @@ export default function GamePage(props) {
     duplicArreysWord,
     arrayWin,
     arrayLose,
+    checkLose,
+    checkWin,
+    help,
+    showHelp,
   } = props;
   return (
     <>
@@ -26,10 +30,17 @@ export default function GamePage(props) {
           duplicArreysWord={duplicArreysWord}
           arrayWin={arrayWin}
           arrayLose={arrayLose}
+          checkLose={checkLose}
+          checkWin={checkWin}
+          help={help}
         />
       </div>
 
-      <FooterGame modeDark={modeDark} checkForMatches={checkForMatches} />
+      <FooterGame
+        modeDark={modeDark}
+        checkForMatches={checkForMatches}
+        showHelp={showHelp}
+      />
     </>
   );
 }

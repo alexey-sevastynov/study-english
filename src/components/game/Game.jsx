@@ -18,6 +18,9 @@ export default class Game extends Component {
       duplicArreysWord,
       arrayWin,
       arrayLose,
+      checkLose,
+      checkWin,
+      help,
     } = this.props;
 
     const wordCount = arreysWord.length;
@@ -27,21 +30,38 @@ export default class Game extends Component {
 
     const showNumWordCount = wordCount - wordDuplicCount; // number of words passed
 
-    const text =
+    const textMain =
       duplicArreysWord.length === 0
         ? "WIN!"
         : duplicArreysWord[indexRandom].colOne;
 
-    // 10 -100
-    // 1 - x
+    const text =
+      duplicArreysWord.length === 0
+        ? "WIN!"
+        : duplicArreysWord[indexRandom].colTwo;
+
     const percent = (100 * showNumWordCount) / wordCount;
     const showPercent = { width: `${percent}%` };
+
+    const styleRed = checkLose
+      ? "game-block-head answer-false"
+      : "game-block-head ";
+
+    const styleGreen = checkWin
+      ? "game-block-head answer-true"
+      : "game-block-head ";
+
+    const stylePercentPanel = checkWin ? styleGreen : styleRed;
+
+    const visibleHelp = help
+      ? `${textMain} - ${text}`
+      : 'if you want to know help, you view down and onclick "HELP"';
 
     return (
       <section className="game">
         <div className="game-block">
           <div className="game-block-header">
-            <div className="game-block-head" style={showPercent}></div>
+            <div className={stylePercentPanel} style={showPercent}></div>
             <div className="game-block-header-percent">
               <p>
                 {showNumWordCount} from {wordCount}
@@ -50,7 +70,7 @@ export default class Game extends Component {
           </div>
 
           <div className="game-block-main">
-            <div className="game-block-main-col1">{text}</div>
+            <div className="game-block-main-col1">{textMain}</div>
             <div className="game-block-main-col2">
               <textarea
                 placeholder="write here..."
@@ -62,7 +82,7 @@ export default class Game extends Component {
         </div>
 
         <div className="game-answer">
-          <p>кошка - cat</p>
+          <p>{visibleHelp}</p>
         </div>
 
         <div className="game-screen">

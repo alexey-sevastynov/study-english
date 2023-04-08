@@ -13,18 +13,34 @@
 
 .game-block-header {
     position: relative;
+    color: white;
+}
+
+.dark_mode .game-block-header {
+    color: #c1a400
 }
 
 .game-block-head {
 
     height: 40px;
-    background-color: green;
+    background-color: #404040;
+
 
     transition: all 0.9s ease-out 0s;
 }
 
 .dark_mode .game-block-head {
     background-color: #404040;
+}
+
+.dark_mode .answer-true,
+.answer-true {
+    background-color: rgb(0, 88, 0);
+}
+
+.dark_mode .answer-false,
+.answer-false {
+    background-color: rgb(123, 0, 0);
 }
 
 .game-block-main {

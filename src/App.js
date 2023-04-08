@@ -255,6 +255,8 @@ class App extends React.Component {
     // this.showRandomWord();
   }
 
+  componentDidUpdate(prevProps, prevState) {}
+
   showHelp = () => {
     this.setState(() => {
       return {

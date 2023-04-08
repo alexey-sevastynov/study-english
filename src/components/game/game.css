@@ -171,3 +171,13 @@
         width: 100%;
     }
 }
+
+.false-words {
+    display: flex;
+    flex-direction: column-reverse;
+    height: 60px;
+
+    margin-top: 10px;
+    text-align: center;
+    overflow: auto;
+}

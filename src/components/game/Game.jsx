@@ -93,6 +93,14 @@ export default class Game extends Component {
             <p>{wordCountFalse}</p>
           </div>
         </div>
+
+        <div className="false-words">
+          {arrayLose.map((item) => (
+            <p key={item.id}>
+              {item.colOne}={item.colTwo}
+            </p>
+          ))}
+        </div>
       </section>
     );
   }

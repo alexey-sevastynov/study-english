@@ -166,8 +166,9 @@ class App extends React.Component {
 
     const duplicWordCount = duplicArreysWord.length; // word count
 
-    const word = duplicArreysWord[indexRandom].colTwo.toLowerCase(); // colon_1 CheckPage.jsx
-    const wordInput = inputWord.toLowerCase(); // colon_2 INPUT CheckPage.jsx
+    const word = duplicArreysWord[indexRandom].colTwo.toLowerCase().trim(); // colon_1 CheckPage.jsx
+    const wordInput = inputWord.toLowerCase().trim(); // colon_2 INPUT CheckPage.jsx
+    console.log(wordInput);
 
     const objCurrent = duplicArreysWord[indexRandom]; // current object
 

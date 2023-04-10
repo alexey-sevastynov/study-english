@@ -73,11 +73,12 @@ export default class Game extends Component {
           <div className="game-block-main">
             <div className="game-block-main-col1">{textMain}</div>
             <div className="game-block-main-col2">
-              <textarea
+              <input
                 placeholder="write here..."
                 value={inputWord}
                 onChange={handleWordChange}
-              ></textarea>
+                onKeyUp={handleWordChange}
+              ></input>
             </div>
           </div>
         </div>

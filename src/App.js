@@ -158,6 +158,16 @@ class App extends React.Component {
 
   handleWordChange = (event) => {
     this.setState({ inputWord: event.target.value });
+
+    // if pressed on keyboard 'enter'
+    if (event.keyCode === 13) {
+      this.checkForMatches();
+    }
+
+    // if pressed on keyboard 'ctrl'
+    if (event.keyCode === 17) {
+      this.showHelp();
+    }
   };
 
   checkForMatches = () => {
@@ -183,6 +193,12 @@ class App extends React.Component {
           inputWordDuplicat: wordInput,
         };
       });
+
+      setTimeout(
+        () => this.setState({ checkLose: false, checkWin: false }),
+        3000
+      );
+
       if (!arrayLose.includes(objCurrent)) {
         const newArreysWord = duplicArreysWord.filter(
           (item) => item !== objCurrent
@@ -207,6 +223,11 @@ class App extends React.Component {
           inputWord: "",
         };
       });
+
+      setTimeout(
+        () => this.setState({ checkLose: false, checkWin: false }),
+        3000
+      );
 
       if (!arrayWin.includes(objCurrent)) {
         const newArreysWord = duplicArreysWord.filter(

@@ -19,3 +19,16 @@
 
 
 }
+
+.container-scroll {
+    height: calc(100% - 100px);
+    overflow: scroll;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+@media(max-width:700px) {
+    .container-scroll {
+        max-width: 700px;
+    }
+}

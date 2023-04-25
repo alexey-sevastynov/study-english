@@ -275,11 +275,6 @@ class App extends React.Component {
       };
     });
   };
-  componentDidMount() {
-    // this.showRandomWord();
-  }
-
-  componentDidUpdate(prevProps, prevState) {}
 
   showHelp = () => {
     this.setState(() => {
@@ -290,6 +285,12 @@ class App extends React.Component {
 
     setTimeout(() => this.setState({ help: false }), 4000);
   };
+
+  componentDidMount() {
+    // this.showRandomWord();
+  }
+
+  componentDidUpdate(prevProps, prevState) {}
 
   render() {
     const {
@@ -308,6 +309,7 @@ class App extends React.Component {
       checkLose,
       checkWin,
       help,
+      showError,
     } = this.state;
 
     const styleMode = modeDark ? "app" : "app dark_mode";

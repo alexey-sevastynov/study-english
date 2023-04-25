@@ -6,9 +6,11 @@ import Info from "../components/info/Info";
 export default function InfoPage(props) {
   const { modeDark } = props;
   return (
-    <div>
-      <Info />
+    <>
+      <div className="container-scroll">
+        <Info modeDark={modeDark} />
+      </div>
       <Footer modeDark={modeDark} />
-    </div>
+    </>
   );
 }

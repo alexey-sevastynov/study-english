@@ -20,6 +20,7 @@ export default function MainPages(props) {
     checkForEmptiness,
     err,
     success,
+    uniqueWords,
   } = props;
   return (
     <>
@@ -43,6 +44,7 @@ export default function MainPages(props) {
         reverseArray={reverseArray}
         checkForEmptiness={checkForEmptiness}
         arreysWord={arreysWord}
+        uniqueWords={uniqueWords}
       />
     </>
   );

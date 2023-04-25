@@ -20,6 +20,7 @@ export default class FooterMain extends Component {
       reverseArray,
       checkForEmptiness,
       arreysWord,
+      uniqueWords,
     } = this.props;
 
     const imgFurther = modeDark ? (
@@ -79,6 +80,7 @@ export default class FooterMain extends Component {
         height={50}
         alt="wrire"
         onClick={addedWordsInArray}
+        onDoubleClick={uniqueWords}
       ></img>
     );
 

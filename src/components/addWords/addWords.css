@@ -129,8 +129,7 @@ textarea {
     .block {
         display: flex;
         flex-direction: column;
-        width: 100%;
-        height: 100%;
+
     }
 
     .block textarea {
@@ -139,7 +138,7 @@ textarea {
 
     .col_1,
     .col_3 {
-        height: 600px;
+        height: 48%;
     }
 
     .col_2 {

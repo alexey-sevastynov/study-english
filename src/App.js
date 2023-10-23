@@ -5,6 +5,8 @@ import { Routes, Route, Link } from "react-router-dom";
 
 import { col_1, col_2, uniqueArrWords } from "./uniqueWords";
 
+import { textToSpeech } from "./helpers/textToSpeech";
+
 import Header from "./components/header/Header";
 import Info from "./components/info/Info";
 import Footer from "./components/footer/Footer";
@@ -201,6 +203,7 @@ class App extends React.Component {
     //_______________________________________check LOSE
 
     if (word !== wordInput) {
+      textToSpeech(word, "Google US English", 0.6, 1);
       this.setState(() => {
         return {
           checkLose: true,
@@ -232,6 +235,7 @@ class App extends React.Component {
     //_______________________________________check WIN!!!
 
     if (word === wordInput) {
+      textToSpeech(word, "Google US English", 0.6, 1);
       this.setState(() => {
         return {
           checkWin: true,

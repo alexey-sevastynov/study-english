@@ -175,6 +175,8 @@ class App extends React.Component {
   };
 
   handleWordChange = (event) => {
+    const { duplicArreysWord, indexRandom } = this.state;
+    const word = duplicArreysWord[indexRandom].colTwo.toLowerCase().trim(); // colon_1 CheckPage.jsx
     this.setState({ inputWord: event.target.value });
 
     // if pressed on keyboard 'enter'
@@ -184,6 +186,7 @@ class App extends React.Component {
 
     // if pressed on keyboard 'ctrl'
     if (event.keyCode === 17) {
+      textToSpeech(word, "Google US English", 0.6, 1);
       this.showHelp();
     }
   };
